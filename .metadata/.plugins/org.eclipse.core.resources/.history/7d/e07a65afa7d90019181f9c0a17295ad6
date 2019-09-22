@@ -1,0 +1,20 @@
+package menu.db.connection;
+
+public class DBConnection {
+	public static Connection getCon() throws SQLException{
+		Connection conn=null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url="jdbc:oracle:thin:@10.96.123.224:1521:xe";
+			String user="root";
+			String pass="1234";
+			
+			conn=DriverManager.getConnection(url, user, pass);
+			return conn;
+		}
+		catch(ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
+}

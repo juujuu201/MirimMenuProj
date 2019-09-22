@@ -1,0 +1,5 @@
+package menu.db.connection;
+
+public class DBConnection {
+
+}

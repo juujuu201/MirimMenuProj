@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\0mirim\jsp\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4226900809.index
+3753786283.index
+2795641673.index
+3204370252.index
+1434118798.index
+3548231232.index
+1855295899.index
