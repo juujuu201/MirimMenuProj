@@ -68,7 +68,6 @@ b:hover{
 		pstmt.setString(1,like);
 		pstmt.setString(2,like);
 		
-		
 		rs=pstmt.executeQuery();%>
 		<table width="80%" align="center" id="books" >
 		<%while(rs.next()){

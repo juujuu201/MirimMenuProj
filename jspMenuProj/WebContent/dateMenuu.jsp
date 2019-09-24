@@ -43,8 +43,15 @@ b:hover{
 	<div class="form-group form-group-sm" style="margin-top:5%;padding-bottom:5%;">
 	  <div class="col-sm-3"></div>
       <label class="col-sm-1" for="usr">날짜 : </label>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
       	<input type="date" class="form-control" id="usr" name="date">
+      </div>
+      <div class="col-sm-1 form-group">
+      	<select name="mtype" class="form-control">
+      		<option value="조식">조식</option>
+      		<option value="중식">중식</option>
+      		<option value="석식">석식</option>
+      	</select>
       </div>
       <div class="col-sm-1">
       	<input type="submit" class="btn form-control btn-warning" value="검색" id="search">
@@ -61,6 +68,8 @@ b:hover{
 	request.setCharacterEncoding("utf-8");
 
 	String date=request.getParameter("date");
+	String mtype=request.getParameter("mtype");
+	System.out.println("mtype : "+mtype);
 	int count=1;
 
 	Connection conn=null;
@@ -69,8 +78,9 @@ b:hover{
 	
 	try{
 		conn=DBConnection.getCon();
-		pstmt=conn.prepareStatement("select menu_date, mtype, menu from schoolmealtbl where DATE_FORMAT(menu_date,'%Y-%m-%d')=? order by menu_date");
+		pstmt=conn.prepareStatement("select menu_date, mtype, menu from schoolmealtbl where DATE_FORMAT(menu_date,'%Y-%m-%d')=? AND mtype=? order by menu_date");
 		pstmt.setString(1,date);
+		pstmt.setString(2, mtype);
 		
 		rs=pstmt.executeQuery();%>
 		<%while(rs.next()){

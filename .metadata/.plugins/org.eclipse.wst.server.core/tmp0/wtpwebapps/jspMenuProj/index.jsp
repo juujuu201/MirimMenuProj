@@ -62,7 +62,7 @@ b:hover{
 					PreparedStatement pstmt=null;
 					ResultSet rs=null;
 					
-					String sql="select menu_date, mtype, REPLACE(menu,' ','\r') as menu from schoolmealtbl";
+					String sql="select menu_date, mtype, REPLACE(menu,' ','\r\n') as menu from schoolmealtbl";
 					int count=1;
 					
 					try{
